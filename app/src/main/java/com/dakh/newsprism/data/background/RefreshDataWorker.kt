@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.dakh.newsprism.domain.usecase.UpdateArticlesForAllSubscriptionsUseCase
+import com.dakh.newsprism.domain.usecase.subscriptions.UpdateArticlesForAllSubscriptionsUseCase
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 
