@@ -1,4 +1,4 @@
-package com.dakh.newsprism.presentation.theme
+package com.dakh.newsprism.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

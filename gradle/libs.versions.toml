@@ -1,6 +1,7 @@
 [versions]
 agp = "8.13.1"
 converterKotlinxSerialization = "3.0.0"
+hiltWork = "1.3.0"
 kotlin = "2.2.21"
 coreKtx = "1.17.0"
 junit = "4.13.2"
@@ -18,10 +19,14 @@ hilt = "2.57.2"
 hiltNavigationCompose = "1.3.0"
 coil = "3.3.0"
 kotlinxSerializationJson = "1.9.0"
+icons = "1.7.8"
+work = "2.11.0"
 
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltWork" }
+androidx-hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hiltWork" }
 converter-kotlinx-serialization = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "converterKotlinxSerialization" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -48,6 +53,9 @@ coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" 
 coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coil" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+material-icons-core = { module = "androidx.compose.material:material-icons-core", version.ref = "icons" }
+material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "icons" }
+work = { module = "androidx.work:work-runtime-ktx", version.ref = "work" }
 
 
 [plugins]
