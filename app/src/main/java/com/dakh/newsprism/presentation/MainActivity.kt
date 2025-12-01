@@ -4,11 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.lifecycle.lifecycleScope
 import com.dakh.newsprism.domain.repository.NewsRepository
-import com.dakh.newsprism.presentation.theme.NewsPrismTheme
+import com.dakh.newsprism.presentation.screens.subscriptions.SubscriptionsScreen
+import com.dakh.newsprism.ui.theme.NewsPrismTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -20,14 +19,14 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        lifecycleScope.launch {
-            repository.addSubscription("Kotlin")
-            repository.updateArticlesForTopic("Kotlin")
-//            Log.d("MainActivity", repository.getArticlesByTopics())
-        }
+
         setContent {
             NewsPrismTheme {
+                SubscriptionsScreen(
+                    onNavigateToSettings = {
 
+                    }
+                )
             }
         }
     }

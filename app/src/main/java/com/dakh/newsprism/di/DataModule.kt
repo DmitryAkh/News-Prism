@@ -2,6 +2,7 @@ package com.dakh.newsprism.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.work.WorkManager
 import com.dakh.newsprism.data.local.NewsDao
 import com.dakh.newsprism.data.local.NewsDataBase
 import com.dakh.newsprism.data.remote.NewsApiService
@@ -33,6 +34,14 @@ interface DataModule {
 
 
     companion object {
+
+        @Provides
+        @Singleton
+        fun provideWorkManager(
+            @ApplicationContext context: Context,
+        ): WorkManager {
+            return WorkManager.getInstance(context)
+        }
 
         @Provides
         @Singleton
