@@ -5,9 +5,9 @@ import com.dakh.newsprism.domain.repository.SettingsRepository
 import javax.inject.Inject
 
 class UpdateIntervalUseCase @Inject constructor(
-    private val repository: SettingsRepository,
+    private val settingsRepository: SettingsRepository,
 ) {
 
-     suspend operator fun invoke(interval: Interval) = repository.updateInterval(interval.minutes)
+     suspend operator fun invoke(interval: Interval) = settingsRepository.updateInterval(interval.minutes)
 
 }

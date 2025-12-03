@@ -4,6 +4,7 @@ import com.dakh.newsprism.data.local.ArticleDbModel
 import com.dakh.newsprism.data.remote.NewsResponseDto
 import com.dakh.newsprism.domain.entity.Article
 import com.dakh.newsprism.domain.entity.Interval
+import com.dakh.newsprism.domain.entity.Language
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -41,4 +42,13 @@ private fun String.toTimeStamp(): Long {
 
 fun Int.toInterval(): Interval {
     return Interval.entries.first { it.minutes == this }
+}
+
+fun Language.toQueryParam(): String {
+    return when (this) {
+        Language.ENGLISH -> "en"
+        Language.RUSSIAN -> "ru"
+        Language.FRENCH -> "fr"
+        Language.DEUTSCH -> "de"
+    }
 }
