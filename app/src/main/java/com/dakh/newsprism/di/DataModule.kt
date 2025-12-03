@@ -7,7 +7,9 @@ import com.dakh.newsprism.data.local.NewsDao
 import com.dakh.newsprism.data.local.NewsDataBase
 import com.dakh.newsprism.data.remote.NewsApiService
 import com.dakh.newsprism.data.repository.NewsRepositoryImpl
+import com.dakh.newsprism.data.repository.SettingsRepositoryImpl
 import com.dakh.newsprism.domain.repository.NewsRepository
+import com.dakh.newsprism.domain.repository.SettingsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -25,6 +27,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 interface DataModule {
+
+    @Binds
+    @Singleton
+    fun bindSettingsRepository(
+        impl: SettingsRepositoryImpl,
+    ): SettingsRepository
 
     @Binds
     @Singleton
