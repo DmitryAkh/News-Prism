@@ -1,4 +1,4 @@
-package com.dakh.newsprism.domain.usecase
+package com.dakh.newsprism.domain.usecase.subscriptions
 
 import com.dakh.newsprism.domain.repository.NewsRepository
 import kotlinx.coroutines.CoroutineScope
