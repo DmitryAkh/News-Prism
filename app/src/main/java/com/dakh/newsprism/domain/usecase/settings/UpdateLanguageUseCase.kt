@@ -5,9 +5,9 @@ import com.dakh.newsprism.domain.repository.SettingsRepository
 import javax.inject.Inject
 
 class UpdateLanguageUseCase @Inject constructor(
-    private val repository: SettingsRepository,
+    private val settingsRepository: SettingsRepository,
 ) {
 
-     suspend operator fun invoke(language: Language) = repository.updateLanguage(language)
+     suspend operator fun invoke(language: Language) = settingsRepository.updateLanguage(language)
 
 }

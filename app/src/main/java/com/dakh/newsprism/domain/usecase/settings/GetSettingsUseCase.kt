@@ -4,9 +4,9 @@ import com.dakh.newsprism.domain.repository.SettingsRepository
 import javax.inject.Inject
 
 class GetSettingsUseCase @Inject constructor(
-    private val repository: SettingsRepository,
+    private val settingsRepository: SettingsRepository,
 ) {
 
-    operator fun invoke() = repository.getSettings()
+    operator fun invoke() = settingsRepository.getSettings()
 
 }

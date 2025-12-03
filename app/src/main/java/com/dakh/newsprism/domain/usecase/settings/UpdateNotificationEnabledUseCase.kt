@@ -4,9 +4,9 @@ import com.dakh.newsprism.domain.repository.SettingsRepository
 import javax.inject.Inject
 
 class UpdateNotificationEnabledUseCase @Inject constructor(
-    private val repository: SettingsRepository,
+    private val settingsRepository: SettingsRepository,
 ) {
 
-     suspend operator fun invoke(enabled: Boolean) = repository.updateNotificationsAllow(enabled)
+     suspend operator fun invoke(enabled: Boolean) = settingsRepository.updateNotificationsAllow(enabled)
 
 }

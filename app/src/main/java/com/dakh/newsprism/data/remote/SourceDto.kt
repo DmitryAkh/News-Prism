@@ -1,7 +1,7 @@
 package com.dakh.newsprism.data.remote
 
-import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 
 @Serializable

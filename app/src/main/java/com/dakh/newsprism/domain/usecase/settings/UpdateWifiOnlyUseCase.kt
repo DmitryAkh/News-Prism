@@ -4,9 +4,9 @@ import com.dakh.newsprism.domain.repository.SettingsRepository
 import javax.inject.Inject
 
 class UpdateWifiOnlyUseCase @Inject constructor(
-    private val repository: SettingsRepository,
+    private val settingsRepository: SettingsRepository,
 ) {
 
-     suspend operator fun invoke(wifiOnly: Boolean) = repository.updateWifiOnly(wifiOnly)
+     suspend operator fun invoke(wifiOnly: Boolean) = settingsRepository.updateWifiOnly(wifiOnly)
 
 }
