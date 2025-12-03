@@ -1,6 +1,10 @@
 package com.dakh.newsprism.data.local
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "subscriptions")
-data class SubscriptionDbModel(val topic: String)
+
+data class SubscriptionDbModel(
+    @PrimaryKey val topic: String,
+)
