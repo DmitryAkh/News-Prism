@@ -63,7 +63,6 @@ class NotificationHelper @Inject constructor(
     companion object {
         private const val CHANNEL_ID = "new_articles"
         private const val NOTIFICATION_ID = 1
-
         private const val PENDING_INTENT_RC = 1
     }
 
