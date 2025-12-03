@@ -1,6 +1,10 @@
 package com.dakh.newsprism.data.repository
 
 import android.util.Log
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
+import com.dakh.newsprism.data.background.RefreshDataWorker
 import com.dakh.newsprism.data.local.ArticleDbModel
 import com.dakh.newsprism.data.local.NewsDao
 import com.dakh.newsprism.data.local.SubscriptionDbModel
@@ -16,10 +20,12 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import java.util.concurrent.CancellationException
+import java.util.concurrent.TimeUnit
 
 class NewsRepositoryImpl @Inject constructor(
     private val newsDao: NewsDao,
     private val apiService: NewsApiService,
+    private val workManager: WorkManager
 ) : NewsRepository {
     override fun getAllSubscriptions(): Flow<List<String>> {
         return newsDao.getAllSubscriptions().map { subscriptions ->
@@ -27,6 +33,10 @@ class NewsRepositoryImpl @Inject constructor(
                 it.topic
             }
         }
+    }
+
+    init {
+        startBackgroundRefresh()
     }
 
     override suspend fun addSubscription(topic: String) {
@@ -69,6 +79,15 @@ class NewsRepositoryImpl @Inject constructor(
         return newsDao.getArticlesByTopics(topics).map {
             it.toArticle()
         }
+    }
+
+    private fun startBackgroundRefresh() {
+        val request = PeriodicWorkRequestBuilder<RefreshDataWorker>(15L, TimeUnit.MINUTES).build()
+        workManager.enqueueUniquePeriodicWork(
+            uniqueWorkName = "Refresh data",
+            existingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE,
+            request = request
+        )
     }
 
     override suspend fun clearAllArticles(topics: List<String>) {
