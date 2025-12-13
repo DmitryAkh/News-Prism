@@ -1,4 +1,4 @@
-package com.dakh.newsprism.presentation.screens.subscriptions
+package com.dakh.newsprism.presentation.screen.subscriptions
 
 import android.content.Intent
 import androidx.compose.foundation.clickable
@@ -68,7 +68,7 @@ fun SubscriptionsScreen(
             .fillMaxSize(),
         topBar = {
             SubscriptionsTopBar(
-                onRefershDataClick = {
+                onRefreshDataClick = {
                     viewModel.processCommand(SubscriptionsCommand.RefreshData)
                 },
                 onClearArticlesClick = {
@@ -147,7 +147,7 @@ fun SubscriptionsScreen(
 @Composable
 private fun SubscriptionsTopBar(
     modifier: Modifier = Modifier,
-    onRefershDataClick: () -> Unit,
+    onRefreshDataClick: () -> Unit,
     onClearArticlesClick: () -> Unit,
     onSettingsClick: () -> Unit,
 ) {
@@ -163,7 +163,7 @@ private fun SubscriptionsTopBar(
                 modifier = Modifier
                     .clip(CircleShape)
                     .clickable {
-                        onRefershDataClick()
+                        onRefreshDataClick()
                     }
                     .padding(8.dp),
                 imageVector = Icons.Default.Refresh,

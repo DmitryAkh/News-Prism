@@ -5,6 +5,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.content.getSystemService
 import com.dakh.newsprism.R
@@ -23,12 +24,14 @@ class NotificationHelper @Inject constructor(
 
     private fun createNotificationChannel() {
 
-        val channel = NotificationChannel(
-            CHANNEL_ID,
-            context.getString(R.string.new_articles),
-            NotificationManager.IMPORTANCE_DEFAULT
-        )
-        notificationManager?.createNotificationChannel(channel)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                CHANNEL_ID,
+                context.getString(R.string.new_articles),
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            notificationManager?.createNotificationChannel(channel)
+        }
     }
 
     fun showNewArticlesNotification(topics: List<String>) {
