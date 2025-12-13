@@ -1,4 +1,4 @@
-package com.dakh.newsprism.presentation.screens.subscriptions
+package com.dakh.newsprism.presentation.screen.subscriptions
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

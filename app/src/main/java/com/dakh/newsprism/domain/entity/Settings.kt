@@ -16,7 +16,7 @@ data class Settings(
 
 enum class Language {
 
-    ENGLISH, RUSSIAN, FRENCH, DEUTSCH
+    ENGLISH, RUSSIAN, FRENCH, GERMAN
 }
 
 enum class Interval(val minutes: Int) {
@@ -29,3 +29,4 @@ enum class Interval(val minutes: Int) {
     HOUR_8(480),
     HOUR_24(1440)
 }
+
