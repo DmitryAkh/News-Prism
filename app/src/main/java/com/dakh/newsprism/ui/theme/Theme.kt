@@ -1,4 +1,4 @@
-package com.dakh.newsprism.presentation.theme
+package com.dakh.newsprism.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
