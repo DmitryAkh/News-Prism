@@ -22,7 +22,7 @@
 ## Стек
 
 - Kotlin
-- MVM
+- MVVM
 - Jetpack Compose
 - Flow
 - Coroutines
